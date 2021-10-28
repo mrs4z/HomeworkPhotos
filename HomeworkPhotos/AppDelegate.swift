@@ -15,50 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let tabBar = UITabBarController()
-        
-        let mediaView = MediaViewController()
-        mediaView.tabBarItem = UITabBarItem(title: "Медиатека", image: UIImage(systemName: "photo.fill.on.rectangle.fill"), tag: 0)
-        let mediaNavItem = UINavigationController(rootViewController: mediaView)
-        mediaNavItem.navigationBar.prefersLargeTitles = true
-        mediaNavItem.navigationBar.isTranslucent = true
-        mediaNavItem.view.backgroundColor = .white
-        
-        let foryouView = ForyouViewController()
-        foryouView.tabBarItem = UITabBarItem(title: "Для вас", image: UIImage(systemName: "heart.text.square.fill"), tag: 1)
-        let foryouNavItem = UINavigationController(rootViewController: foryouView)
-        foryouNavItem.navigationBar.prefersLargeTitles = true
-        foryouNavItem.navigationBar.isTranslucent = true
-        foryouNavItem.view.backgroundColor = .white
-        
-        let photosView = PhotosViewController()
-        photosView.tabBarItem = UITabBarItem(title: "Фото", image: UIImage(systemName: "rectangle.stack.fill"), tag: 2)
-        let photosNavItem = UINavigationController(rootViewController: photosView)
-        photosNavItem.navigationBar.prefersLargeTitles = true
-        photosNavItem.navigationBar.isTranslucent = true
-        photosNavItem.view.backgroundColor = .white
-        
-        let findView = FindViewController()
-        findView.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 3)
-        let findNavItem = UINavigationController(rootViewController: findView)
-        findNavItem.navigationBar.prefersLargeTitles = true
-        findNavItem.navigationBar.isTranslucent = true
-        findNavItem.view.backgroundColor = .white
-        
         tabBar.setViewControllers([
-            mediaNavItem,
-            foryouNavItem,
-            photosNavItem,
-            findNavItem
+            createNavController(viewController: MediaViewController(), title: "Медиатека", icon: UIImage(systemName: "photo.fill.on.rectangle.fill"), index: 0),
+            createNavController(viewController: ForyouViewController(), title: "Для вас", icon: UIImage(systemName: "heart.text.square.fill"), index: 1),
+            createNavController(viewController: PhotosViewController(), title: "Фото", icon: UIImage(systemName: "rectangle.stack.fill"), index: 2),
+            createNavController(viewController: FindViewController(), title: "Поиск", icon: UIImage(systemName: "magnifyingglass"), index: 3),
         ], animated: true)
         
         tabBar.selectedIndex = 2
         window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
-        
         return true
     }
 
     
+    func createNavController(viewController: UIViewController, title: String, icon: UIImage?, index: Int) -> UINavigationController {
+        let view = viewController
+        let navItem = UINavigationController(rootViewController: view)
+        view.tabBarItem = UITabBarItem(title: title, image: icon, tag: index)
+        navItem.navigationBar.prefersLargeTitles = true
+        navItem.navigationBar.isTranslucent = true
+        navItem.view.backgroundColor = .white
+        return navItem
+    }
 
 
 }
