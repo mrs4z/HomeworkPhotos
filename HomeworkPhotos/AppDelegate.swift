@@ -10,26 +10,55 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let tabBar = UITabBarController()
+        
+        let mediaView = MediaViewController()
+        mediaView.tabBarItem = UITabBarItem(title: "Медиатека", image: UIImage(systemName: "photo.fill.on.rectangle.fill"), tag: 0)
+        let mediaNavItem = UINavigationController(rootViewController: mediaView)
+        mediaNavItem.navigationBar.prefersLargeTitles = true
+        mediaNavItem.navigationBar.isTranslucent = true
+        mediaNavItem.view.backgroundColor = .white
+        
+        let foryouView = ForyouViewController()
+        foryouView.tabBarItem = UITabBarItem(title: "Для вас", image: UIImage(systemName: "heart.text.square.fill"), tag: 1)
+        let foryouNavItem = UINavigationController(rootViewController: foryouView)
+        foryouNavItem.navigationBar.prefersLargeTitles = true
+        foryouNavItem.navigationBar.isTranslucent = true
+        foryouNavItem.view.backgroundColor = .white
+        
+        let photosView = PhotosViewController()
+        photosView.tabBarItem = UITabBarItem(title: "Фото", image: UIImage(systemName: "rectangle.stack.fill"), tag: 2)
+        let photosNavItem = UINavigationController(rootViewController: photosView)
+        photosNavItem.navigationBar.prefersLargeTitles = true
+        photosNavItem.navigationBar.isTranslucent = true
+        photosNavItem.view.backgroundColor = .white
+        
+        let findView = FindViewController()
+        findView.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 3)
+        let findNavItem = UINavigationController(rootViewController: findView)
+        findNavItem.navigationBar.prefersLargeTitles = true
+        findNavItem.navigationBar.isTranslucent = true
+        findNavItem.view.backgroundColor = .white
+        
+        tabBar.setViewControllers([
+            mediaNavItem,
+            foryouNavItem,
+            photosNavItem,
+            findNavItem
+        ], animated: true)
+        
+        tabBar.selectedIndex = 2
+        window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
+    
 
 
 }
