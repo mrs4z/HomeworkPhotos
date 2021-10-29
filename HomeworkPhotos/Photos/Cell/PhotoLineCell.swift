@@ -70,7 +70,6 @@ class PhotoLineCell: UICollectionViewCell {
         contentView.addSubview(arrowView)
         contentView.addSubview(counter)
         contentView.addSubview(lineView)
-        
         iconView.addSubview(icon)
         arrowView.addSubview(arrowIcon)
     }
@@ -83,29 +82,22 @@ class PhotoLineCell: UICollectionViewCell {
         arrowIcon.translatesAutoresizingMaskIntoConstraints = false
         counter.translatesAutoresizingMaskIntoConstraints = false
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        
         iconView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
         iconView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
         iconView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor).isActive = true
         iconView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor).isActive = true
-        
         icon.widthAnchor.constraint(equalTo: iconView.widthAnchor, constant: -17).isActive = true
         icon.heightAnchor.constraint(equalTo: iconView.heightAnchor, constant: -17).isActive = true
-        
         title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 45).isActive = true
-        
         arrowView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         arrowView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor).isActive = true
         arrowView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor).isActive = true
-        
         arrowIcon.centerYAnchor.constraint(equalTo: arrowView.centerYAnchor, constant: -9).isActive = true
         arrowIcon.trailingAnchor.constraint(equalTo: arrowView.trailingAnchor, constant: -8).isActive = true
         arrowIcon.widthAnchor.constraint(equalTo: arrowView.widthAnchor, constant: -25).isActive = true
         arrowIcon.heightAnchor.constraint(equalTo: arrowView.widthAnchor, constant: -25).isActive = true
-        
         counter.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -50).isActive = true
         counter.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor, constant: -9).isActive = true
-        
         lineView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5).isActive = true
         lineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         lineView.leadingAnchor.constraint(equalTo: title.leadingAnchor).isActive = true
@@ -125,6 +117,4 @@ class PhotoLineCell: UICollectionViewCell {
         counter.text = String(model.counter)
         arrowIcon.image = UIImage(systemName: "chevron.right")
     }
-    
-    
 }

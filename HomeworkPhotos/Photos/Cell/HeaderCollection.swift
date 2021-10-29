@@ -42,7 +42,6 @@ class HeaderCollection: UICollectionReusableView {
     override func layoutSubviews() {
         name.translatesAutoresizingMaskIntoConstraints = false
         desc.translatesAutoresizingMaskIntoConstraints = false
-        
         name.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
         name.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
         desc.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
