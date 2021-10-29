@@ -19,6 +19,7 @@
 		F8F8A27B272ADB680074506B /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8A27A272ADB680074506B /* PhotoModels.swift */; };
 		F8F8A27F272BD1710074506B /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8A27E272BD1700074506B /* PhotoCell.swift */; };
 		F8F8A281272BD2350074506B /* HeaderCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8A280272BD2350074506B /* HeaderCollection.swift */; };
+		F8F8A283272C18DD0074506B /* PhotoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F8A282272C18DC0074506B /* PhotoLineCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F8F8A27A272ADB680074506B /* PhotoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModels.swift; sourceTree = "<group>"; };
 		F8F8A27E272BD1700074506B /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		F8F8A280272BD2350074506B /* HeaderCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollection.swift; sourceTree = "<group>"; };
+		F8F8A282272C18DC0074506B /* PhotoLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLineCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				F8F8A27E272BD1700074506B /* PhotoCell.swift */,
 				F8F8A280272BD2350074506B /* HeaderCollection.swift */,
+				F8F8A282272C18DC0074506B /* PhotoLineCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				F8F8A275272AC8330074506B /* ForyouViewController.swift in Sources */,
 				F8F8A273272AC8230074506B /* MediaViewController.swift in Sources */,
 				F8F8A277272AC8450074506B /* FindViewController.swift in Sources */,
+				F8F8A283272C18DD0074506B /* PhotoLineCell.swift in Sources */,
 				F8F8A281272BD2350074506B /* HeaderCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
