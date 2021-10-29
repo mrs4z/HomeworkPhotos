@@ -17,6 +17,7 @@ struct PhotoSection {
 enum PhotoType {
     case simple(model: PhotoItem)
     case users(model: PhotoUser)
+    case line(model: PhotoLine)
 }
 
 struct PhotoUser {
@@ -29,6 +30,12 @@ struct PhotoItem {
     let title: String
     let counter: Int
     let image: String
+}
+
+struct PhotoLine {
+    let icon: String
+    let title: String
+    let counter: Int
 }
 
 extension PhotoSection {
@@ -45,6 +52,11 @@ extension PhotoSection {
             PhotoSection(name: "Люди и места", desc: "Все", rows: 1, items: [
                 PhotoType.users(model: PhotoUser(title: "Люди", counter: 10, images: ["User1", "User2", "User3", "User4"])),
                 PhotoType.simple(model: PhotoItem(title: "Места", counter: 2905, image: "Map1")),
+            ]),
+            PhotoSection(name: "Утилиты", desc: "", rows: 1, items: [
+                PhotoType.line(model: PhotoLine(icon: "square.and.arrow.down", title: "Импортированные", counter: 10)),
+                PhotoType.line(model: PhotoLine(icon: "eye.slash", title: "Скрытые", counter: 15)),
+                PhotoType.line(model: PhotoLine(icon: "trash", title: "Недавно удаленные", counter: 15)),
             ])
         ]
     }

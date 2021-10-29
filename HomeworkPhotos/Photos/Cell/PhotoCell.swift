@@ -82,6 +82,12 @@ class PhotoCell: UICollectionViewCell {
         contentView.addSubview(imageView)
     }
     
+    override func prepareForReuse() {
+        title.text = ""
+        counter.text = ""
+        image.image = nil
+    }
+    
     func configure(model: PhotoType) {
         switch(model) {
             case .users(let model):
@@ -94,6 +100,8 @@ class PhotoCell: UICollectionViewCell {
                 image.image = UIImage(named: model.image)
                 title.text = model.title
                 counter.text = String(model.counter)
+            case .line(model: _): break
+
         }
     }
 }
