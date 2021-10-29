@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    
     func createNavController(viewController: UIViewController, title: String, icon: UIImage?, index: Int) -> UINavigationController {
         let view = viewController
         let navItem = UINavigationController(rootViewController: view)
@@ -38,7 +37,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navItem.view.backgroundColor = .white
         return navItem
     }
-
-
 }
 
