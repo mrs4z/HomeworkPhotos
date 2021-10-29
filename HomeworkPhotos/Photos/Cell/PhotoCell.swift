@@ -9,11 +9,11 @@ import UIKit
 
 class PhotoCell: UICollectionViewCell {
     static let identifier = "PhotoCell"
+    private var type = ""
     
     let image: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 6
-        imageView.backgroundColor = .gray
         imageView.layer.masksToBounds = true
         return imageView
    }()
@@ -49,6 +49,16 @@ class PhotoCell: UICollectionViewCell {
         contentView.addSubview(counter)
     }
     
+    private func setUpImages(images: [String]) {
+        if type == "users" {
+            createImageUser(userImage: images[0], positionX: 0, positionY: 0)
+            createImageUser(userImage: images[1], positionX: Int(contentView.frame.width) / 2, positionY: 0)
+            createImageUser(userImage: images[2], positionX: 0, positionY: Int(contentView.frame.width) / 2)
+            createImageUser(userImage: images[3], positionX: Int(contentView.frame.width) / 2, positionY: Int(contentView.frame.width) / 2)
+        }
+        
+    }
+    
     private func setupLayouts() {
         image.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -63,9 +73,27 @@ class PhotoCell: UICollectionViewCell {
         counter.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 2).isActive = true
     }
     
-    func configure(model: PhotoItem) {
-        image.image = UIImage(named: model.image)
-        title.text = model.title
-        counter.text = String(model.counter)
+    func createImageUser(userImage: String, positionX: Int, positionY: Int) {
+        let image = UIImage(named: userImage)
+        let imageView = UIImageView(image: image!)
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = contentView.frame.width / 4
+        imageView.frame = CGRect(x: positionX, y: positionY, width: Int(contentView.frame.width) / 2, height: Int(contentView.frame.width) / 2)
+        contentView.addSubview(imageView)
+    }
+    
+    func configure(model: PhotoType) {
+        switch(model) {
+            case .users(let model):
+                type = "users"
+                title.text = model.title
+                counter.text = String(model.counter)
+                setUpImages(images: model.images)
+            case .simple(let model):
+                type = "simple"
+                image.image = UIImage(named: model.image)
+                title.text = model.title
+                counter.text = String(model.counter)
+        }
     }
 }
